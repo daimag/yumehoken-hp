@@ -264,3 +264,58 @@
   padding-top: 1rem;
   margin-top: 1.5rem;
 }
+
+/* ========== CSRパートナー詳細ページの本文タイポグラフィ ========== */
+.csr-content {
+  color: #3D3D3D;
+  font-size: 1rem;
+  line-height: 1.95;
+}
+.csr-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3D3D3D;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #95C11F;
+}
+.csr-content h2:first-child {
+  margin-top: 0;
+}
+.csr-content h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #5C7A14;
+  margin: 1.5rem 0 0.5rem;
+}
+.csr-content p {
+  margin: 0.75rem 0;
+}
+.csr-content ul {
+  list-style: disc;
+  margin: 0.75rem 0 0.75rem 1.5rem;
+}
+.csr-content li {
+  margin: 0.4rem 0;
+}
+.csr-content a {
+  color: #5C7A14;
+  text-decoration: underline;
+}
+.csr-content a:hover {
+  color: #95C11F;
+}
+.csr-content blockquote {
+  border-left: 4px solid #95C11F;
+  background-color: #FAF7F0;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  font-style: italic;
+}
+.csr-content .note {
+  font-size: 0.875rem;
+  color: hsl(0 0% 47%);
+  border-top: 1px solid hsl(24 6% 88%);
+  padding-top: 1rem;
+  margin-top: 1.5rem;
+}
