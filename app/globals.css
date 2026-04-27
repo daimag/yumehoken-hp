@@ -148,28 +148,87 @@
   text-wrap: balance;
 }
 
-/* ヒーロー画像クロスフェード（3枚循環、21秒周期） */
-@keyframes hero-fade-a {
-  0%, 28% { opacity: 1; }
-  33%, 95% { opacity: 0; }
-  100% { opacity: 1; }
+/* ========== ヒーロー カルーセル（4枚循環・各7秒・Ken Burnsズーム） ========== */
+/*
+  各スライド：
+   - 表示中：opacity 1, transform: scale(1.12) → scale(1.00)（じわっとズームアウト）
+   - 非表示：opacity 0, transform: scale(1.00)
+   - 1サイクル 28秒
+   - スライド境目で 0.7秒クロスフェード
+*/
+
+/* スライドA：0-7秒 表示 */
+@keyframes hero-kb-a {
+  0%   { opacity: 1; transform: scale(1.12); }
+  23%  { opacity: 1; transform: scale(1.00); }
+  25%  { opacity: 0; transform: scale(1.00); }
+  98%  { opacity: 0; transform: scale(1.12); }
+  100% { opacity: 1; transform: scale(1.12); }
 }
-@keyframes hero-fade-b {
-  0%, 28% { opacity: 0; }
-  33%, 61% { opacity: 1; }
-  66%, 100% { opacity: 0; }
+/* スライドB：7-14秒 表示 */
+@keyframes hero-kb-b {
+  0%, 23%   { opacity: 0; transform: scale(1.12); }
+  25%       { opacity: 1; transform: scale(1.12); }
+  48%       { opacity: 1; transform: scale(1.00); }
+  50%       { opacity: 0; transform: scale(1.00); }
+  100%      { opacity: 0; transform: scale(1.12); }
 }
-@keyframes hero-fade-c {
-  0%, 61% { opacity: 0; }
-  66%, 95% { opacity: 1; }
-  100% { opacity: 0; }
+/* スライドC：14-21秒 表示 */
+@keyframes hero-kb-c {
+  0%, 48%   { opacity: 0; transform: scale(1.12); }
+  50%       { opacity: 1; transform: scale(1.12); }
+  73%       { opacity: 1; transform: scale(1.00); }
+  75%       { opacity: 0; transform: scale(1.00); }
+  100%      { opacity: 0; transform: scale(1.12); }
 }
-.hero-slide-a { animation: hero-fade-a 21s infinite ease-in-out; }
-.hero-slide-b { animation: hero-fade-b 21s infinite ease-in-out; }
-.hero-slide-c { animation: hero-fade-c 21s infinite ease-in-out; }
+/* スライドD：21-28秒 表示 */
+@keyframes hero-kb-d {
+  0%, 73%   { opacity: 0; transform: scale(1.12); }
+  75%       { opacity: 1; transform: scale(1.12); }
+  98%       { opacity: 1; transform: scale(1.00); }
+  100%      { opacity: 0; transform: scale(1.00); }
+}
+
+.hero-slide-a { animation: hero-kb-a 28s infinite ease-in-out; transform-origin: center center; }
+.hero-slide-b { animation: hero-kb-b 28s infinite ease-in-out; transform-origin: center center; opacity: 0; }
+.hero-slide-c { animation: hero-kb-c 28s infinite ease-in-out; transform-origin: center center; opacity: 0; }
+.hero-slide-d { animation: hero-kb-d 28s infinite ease-in-out; transform-origin: center center; opacity: 0; }
+
+/* モーション制御：減らす設定なら静止画 */
 @media (prefers-reduced-motion: reduce) {
-  .hero-slide-a, .hero-slide-b, .hero-slide-c { animation: none; }
-  .hero-slide-b, .hero-slide-c { opacity: 0; }
+  .hero-slide-a,
+  .hero-slide-b,
+  .hero-slide-c,
+  .hero-slide-d {
+    animation: none;
+    transform: none;
+  }
+  .hero-slide-b,
+  .hero-slide-c,
+  .hero-slide-d {
+    opacity: 0;
+  }
+}
+
+/* ========== ヒーロー ネットワークオーバーレイ ========== */
+.hero-network-overlay {
+  mix-blend-mode: screen;
+  opacity: 0.55;
+}
+
+/* ドットのパルス（4秒周期、無限） */
+@keyframes hero-dot-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.85); transform-origin: center; }
+  50%      { opacity: 1;   transform: scale(1.15); transform-origin: center; }
+}
+.hero-dot {
+  animation: hero-dot-pulse 4s infinite ease-in-out;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-dot { animation: none; opacity: 0.7; }
 }
 
 /* 明朝体ユーティリティ（見出しでない箇所で使う場合） */

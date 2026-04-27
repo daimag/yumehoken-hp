@@ -19,6 +19,7 @@ import {
   TreePine,
 } from "lucide-react"
 import HubCard from "@/components/hub-card"
+import HeroNetworkOverlay from "@/components/hero-network-overlay"
 
 // 4ハブの定義
 const hubs = [
@@ -138,25 +139,64 @@ export default function Home() {
   return (
     <>
       {/* ============================================
-          Section 1: ヒーロー
+          Section 1: ヒーロー（4枚カルーセル + Ken Burns + 白線ネットワーク装飾）
          ============================================ */}
       <section
-        className="relative min-h-[600px] md:min-h-[720px] flex items-center overflow-hidden"
+        className="relative min-h-[620px] md:min-h-[760px] flex items-center overflow-hidden bg-[#1F2A1A]"
         aria-label="ゆめほけんメインビジュアル"
       >
-        {/* 背景画像 */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero/loghouse-exterior.jpg"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-          {/* グリーン+ブラウンのグラデーションオーバーレイ */}
+        {/* 背景：4スライドが28秒周期で循環、各スライドはズームアウト効果 */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="hero-slide-a absolute inset-0">
+            <Image
+              src="/images/hero/loghouse-exterior.jpg"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="hero-slide-b absolute inset-0">
+            <Image
+              src="/images/hero/loghouse-interior.png"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="hero-slide-c absolute inset-0">
+            <Image
+              src="/images/hero/loghouse-illumination.png"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="hero-slide-d absolute inset-0">
+            <Image
+              src="/images/hero/loghouse-entrance.png"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+
+          {/* グリーン+チャコールのオーバーレイ（テキスト視認性確保） */}
           <div
-            className="absolute inset-0 bg-gradient-to-br from-[#5C7A14]/70 via-[#3D3D3D]/55 to-[#3D3D3D]/85"
+            className="absolute inset-0 bg-gradient-to-br from-[#5C7A14]/70 via-[#3D3D3D]/55 to-[#1F2A1A]/85"
+            aria-hidden="true"
+          />
+
+          {/* 白線ネットワーク装飾（おしゃれオブジェクト） */}
+          <HeroNetworkOverlay />
+
+          {/* 下部ビネット（テキストの足元を暗く） */}
+          <div
+            className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#1F2A1A]/70 to-transparent"
             aria-hidden="true"
           />
         </div>
@@ -167,12 +207,12 @@ export default function Home() {
             <p className="text-[#F4F8E8] text-sm font-semibold tracking-[0.3em] mb-5 animate-fade-in">
               YUME ★ HOKEN — DREAM INSURANCE INC.
             </p>
-            <h1 className="font-serif text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in-up">
+            <h1 className="font-serif text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in-up drop-shadow-lg">
               安心と、夢で、
               <br />
               笑顔をつなぐ。
             </h1>
-            <p className="text-white/90 text-base md:text-lg leading-relaxed mb-10 max-w-xl animate-fade-in-up">
+            <p className="text-white/95 text-base md:text-lg leading-relaxed mb-10 max-w-xl animate-fade-in-up drop-shadow">
               北九州・小倉南区のログハウスから、保険のご相談・終活のお手伝い・法人リスクヘッジまで。
               <br className="hidden md:block" />
               一生涯のパートナーとして、あなたの“ゆめ”を応援します。
@@ -197,7 +237,7 @@ export default function Home() {
         </div>
 
         {/* ISO バッジ（右下） */}
-        <div className="absolute bottom-6 right-6 hidden md:flex items-center gap-2 bg-white/95 backdrop-blur px-4 py-2.5 rounded-md shadow-lg">
+        <div className="absolute bottom-6 right-6 hidden md:flex items-center gap-2 bg-white/95 backdrop-blur px-4 py-2.5 rounded-md shadow-lg z-10">
           <Award className="w-5 h-5 text-[#5C7A14]" aria-hidden="true" />
           <span className="text-xs font-bold text-[#3D3D3D]">ISO 9001:2015 認証</span>
         </div>
