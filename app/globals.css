@@ -1,0 +1,164 @@
+/* 株式会社大上設備 - 建設業向けコーポレートサイト
+   信頼・誠実・地域密着を体現する力強いデザイン */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 大上設備ブランドカラー（深い紺＋工事色アクセント） */
+    --background: 0 0% 100%;
+    --foreground: 24 9% 10%;       /* 濃いチャコール #1c1917 */
+    --card: 0 0% 100%;
+    --card-foreground: 24 9% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 9% 10%;
+    --primary: 213 56% 23%;        /* 深い紺 #1a365d */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 25% 96%;       /* 温かいベージュ #f8f5f0 */
+    --secondary-foreground: 24 9% 10%;
+    --muted: 60 5% 96%;            /* stone-50相当 */
+    --muted-foreground: 24 6% 35%; /* stone-600相当 */
+    --accent: 38 92% 50%;          /* 工事色アンバー #f59e0b */
+    --accent-foreground: 24 9% 10%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 24 6% 88%;           /* stone-200相当 */
+    --input: 24 6% 88%;
+    --ring: 38 92% 50%;            /* アクセント色フォーカス */
+    --radius: 0.125rem;            /* rounded-sm を基準（角丸控えめ） */
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-noto-sans-jp), 'Noto Sans JP', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* 見出しは力強く */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+  }
+
+  p {
+    line-height: 1.85;
+  }
+
+  /* リンクのフォーカス可視化 */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+/* ========== ユーティリティクラス（建設業向け） ========== */
+
+/* セクション区切りライン（太めで力強さ） */
+.section-divider-strong {
+  @apply border-t-2 border-[#1a365d];
+}
+
+/* アクセントライン（工事色の強調線） */
+.accent-bar {
+  @apply w-16 h-1 bg-[#f59e0b];
+}
+
+.accent-bar-lg {
+  @apply w-24 h-1.5 bg-[#f59e0b];
+}
+
+/* 左ボーダー強調カード */
+.card-accent-left {
+  @apply bg-white border border-stone-200 border-l-4 border-l-[#f59e0b] rounded-sm;
+}
+
+/* セクションラベル（英字キャプション） */
+.section-label {
+  @apply text-[#92400e] text-sm font-semibold tracking-widest uppercase;
+}
+
+/* 骨太ボタン共通スタイル */
+.btn-bold {
+  @apply px-8 py-4 rounded-sm font-bold transition-colors inline-flex items-center justify-center;
+}
+
+.btn-primary {
+  @apply btn-bold bg-[#1a365d] hover:bg-[#0f2441] text-white;
+}
+
+.btn-accent {
+  @apply btn-bold bg-[#f59e0b] hover:bg-[#d97706] text-[#1c1917];
+}
+
+.btn-outline {
+  @apply btn-bold border-2 border-[#1a365d] text-[#1a365d] hover:bg-[#1a365d] hover:text-white;
+}
+
+/* スクロールバー（落ち着いた色） */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(60 5% 96%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(213 30% 50%);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(213 56% 23%);
+}
+
+/* テキストバランス */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ヒーロー画像クロスフェード（3枚循環、21秒周期） */
+@keyframes hero-fade-a {
+  0%, 28% { opacity: 1; }
+  33%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes hero-fade-b {
+  0%, 28% { opacity: 0; }
+  33%, 61% { opacity: 1; }
+  66%, 100% { opacity: 0; }
+}
+@keyframes hero-fade-c {
+  0%, 61% { opacity: 0; }
+  66%, 95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.hero-slide-a { animation: hero-fade-a 21s infinite ease-in-out; }
+.hero-slide-b { animation: hero-fade-b 21s infinite ease-in-out; }
+.hero-slide-c { animation: hero-fade-c 21s infinite ease-in-out; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide-a, .hero-slide-b, .hero-slide-c { animation: none; }
+  .hero-slide-b, .hero-slide-c { opacity: 0; }
+}

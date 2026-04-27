@@ -1,0 +1,78 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug logs（サーバ側で再生成される）
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+install_err.txt
+*.log
+
+# local env files
+.env*.local
+
+# MCP configuration with sensitive data
+.mcp.local.json
+.mcp.json
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# npm (このプロジェクトは pnpm 利用。package-lock.json は混在させない)
+package-lock.json
+
+# クライアント提案書・機密資料（ローカル保管のみ）
+*.pptx
+*.xlsx
+*.docx
+
+# ビルド/開発キャッシュ（サーバ側で自動再生成される）
+.turbo/
+.swc/
+.cache/
+.tmp/
+.temp/
+.parcel-cache/
+
+# テスト成果物（サーバ側で再生成）
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# エディタ・IDE設定（個人環境依存）
+.idea/
+*.swp
+*.swo
+*~
+
+# OS固有ファイル
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
