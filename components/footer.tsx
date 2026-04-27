@@ -13,15 +13,17 @@ const aboutLinks = [
   { name: "会社概要", href: "/about" },
   { name: "ニュースレター", href: "/newsletter" },
   { name: "社会貢献（CSR）", href: "/csr" },
+  { name: "各種方針一覧", href: "/policies" },
   { name: "ネット申込", href: "/apply" },
   { name: "事故・トラブル時", href: "/support" },
 ]
 
 const policyLinks = [
-  { name: "お客さま本位の業務運営方針", href: "/policies/fd" },
-  { name: "保険募集方針", href: "/policies/sales" },
-  { name: "個人情報保護方針", href: "/policies/privacy" },
-  { name: "情報セキュリティ方針", href: "/policies/security" },
+  { name: "お客さま本位の業務運営方針2025", href: "/policies/fd-2025" },
+  { name: "お客さま本位の業務運営方針2024【実績】", href: "/policies/fd-2024-results" },
+  { name: "個人情報保護に関する基本方針", href: "/policies/privacy" },
+  { name: "情報セキュリティ基本方針", href: "/policies/security" },
+  { name: "勧誘方針・販売方針・ご相談指針", href: "/policies/sales" },
 ]
 
 export default function Footer() {
