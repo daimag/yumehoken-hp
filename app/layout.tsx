@@ -57,6 +57,12 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     type: "website",
     url: "https://www.yumehoken.jp",
+    // app/opengraph-image.png が Next.js により自動検出されてOG:imageに設定される
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ゆめほけん | ドリームインシュアランス株式会社",
+    description: "安心と夢をつないで笑顔をまもる。北九州ログハウスの保険代理店。",
   },
   robots: {
     index: true,
