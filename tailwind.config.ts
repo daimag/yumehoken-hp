@@ -62,23 +62,42 @@ const config: Config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        // 大上設備ブランドカラー（建設業向け）
+        // ゆめほけんブランドカラー（ロゴから抽出）
         brand: {
-          navy: '#1a365d',          // プライマリ・深い紺
-          'navy-dark': '#0f2441',   // ホバー
-          amber: '#f59e0b',         // アクセント・工事色
-          'amber-dark': '#d97706',  // ホバー
-          'amber-text': '#92400e',  // テキスト用ダーク
-          beige: '#f8f5f0',         // 温かみベージュ
-          charcoal: '#1c1917',      // 見出しチャコール
+          // 葉のフレッシュグリーン
+          leaf: '#95C11F',
+          'leaf-hover': '#7DA519',
+          'leaf-dark': '#5C7A14',
+          'leaf-soft': '#F4F8E8',     // 葉色の薄い背景
+          // 木のウッドブラウン
+          wood: '#8B5A2B',
+          'wood-hover': '#6F4621',
+          // キャラメル茶（ロゴDream Insurance Inc. 字色）
+          caramel: '#C8956B',
+          // ログハウスのグレーブルー（法人ハブ用）
+          loghouse: '#6B7B8C',
+          'loghouse-hover': '#56657A',
+          // ベージュ（クリーム）
+          cream: '#FAF7F0',
+          // チャコール（本文）
+          charcoal: '#3D3D3D',
+          // LINE公式
+          line: '#06C755',
         },
       },
       fontFamily: {
         sans: [
+          'var(--font-noto-sans-jp)',
           'Noto Sans JP',
           'system-ui',
           '-apple-system',
           'sans-serif',
+        ],
+        serif: [
+          'var(--font-noto-serif-jp)',
+          'Noto Serif JP',
+          'Hiragino Mincho ProN',
+          'serif',
         ],
       },
       borderRadius: {
@@ -99,11 +118,16 @@ const config: Config = {
           from: { opacity: '0' },
           to: { opacity: '1' },
         },
+        'fade-in-up': {
+          from: { opacity: '0', transform: 'translateY(12px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fade-in 0.6s ease-out',
+        'fade-in-up': 'fade-in-up 0.6s ease-out',
       },
     },
   },

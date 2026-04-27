@@ -1,44 +1,62 @@
 /**
- * デザイントークン定義
- * サイト全体で使用する設計変数を一元管理
+ * デザイントークン定義（ゆめほけん版）
+ * ロゴ（葉グリーン + ウッドブラウン）から抽出した、
+ * ナチュラル × 信頼 × 木のぬくもり のパレット
  */
 
 // カラーパレット
 export const colors = {
-  // プライマリカラー（深いネイビーブルー）
+  // プライマリ（葉のフレッシュグリーン）
   primary: {
-    DEFAULT: 'hsl(220 39% 25%)',
-    light: 'hsl(220 39% 35%)',
-    dark: 'hsl(220 39% 15%)',
-    foreground: 'hsl(0 0% 100%)',
+    DEFAULT: '#95C11F',
+    hover: '#7DA519',
+    dark: '#5C7A14',
+    soft: '#F4F8E8',          // 薄緑背景
+    foreground: '#FFFFFF',
   },
-  // セカンダリカラー（オフホワイト）
+  // セカンダリ（木のウッドブラウン）
   secondary: {
-    DEFAULT: 'hsl(0 0% 97%)',
-    light: 'hsl(0 0% 99%)',
-    dark: 'hsl(0 0% 94%)',
-    foreground: 'hsl(220 39% 11%)',
+    DEFAULT: '#8B5A2B',
+    hover: '#6F4621',
+    foreground: '#FFFFFF',
   },
-  // アクセントカラー（ゴールド）
+  // アクセント（キャラメル茶）
   accent: {
-    DEFAULT: 'hsl(38 92% 50%)',
-    light: 'hsl(38 92% 60%)',
-    dark: 'hsl(38 92% 40%)',
-    foreground: 'hsl(220 39% 11%)',
+    DEFAULT: '#C8956B',
+    foreground: '#FFFFFF',
   },
-  // ニュートラルカラー
-  neutral: {
-    0: 'hsl(0 0% 100%)',     // 純白
-    50: 'hsl(0 0% 98%)',     // ほぼ白
-    100: 'hsl(0 0% 96%)',    // 薄いグレー
-    200: 'hsl(0 0% 92%)',    // ライトグレー
-    300: 'hsl(0 0% 88%)',    
-    400: 'hsl(0 0% 70%)',    // ミディアムグレー
-    500: 'hsl(0 0% 50%)',    
-    600: 'hsl(0 0% 35%)',    
-    700: 'hsl(220 9% 25%)',  // ダークグレー
-    800: 'hsl(220 39% 15%)', // ほぼ黒
-    900: 'hsl(220 39% 11%)', // 黒
+  // 法人ハブ用（ログハウスのグレーブルー）
+  business: {
+    DEFAULT: '#6B7B8C',
+    hover: '#56657A',
+    foreground: '#FFFFFF',
+  },
+  // ベース・背景
+  surface: {
+    white: '#FFFFFF',
+    cream: '#FAF7F0',         // 木の温かみ・クリーム
+    leafSoft: '#F4F8E8',      // 葉色の薄背景
+    stone50: 'hsl(60 5% 96%)',
+    stone100: 'hsl(60 5% 92%)',
+  },
+  // テキスト
+  text: {
+    heading: '#3D3D3D',       // 濃チャコール
+    headingAlt: '#8B5A2B',    // ウッドブラウン（強調）
+    body: 'hsl(0 0% 24%)',    // チャコール本文
+    muted: 'hsl(0 0% 47%)',   // stone-500相当
+    subtle: 'hsl(0 0% 60%)',  // stone-400相当
+    onDark: '#FFFFFF',
+    link: '#5C7A14',          // 深緑
+    linkHover: '#95C11F',
+  },
+  // 機能色
+  utility: {
+    border: 'hsl(24 6% 88%)',     // stone-200相当
+    line: '#06C755',              // LINE公式色
+    success: '#16A34A',
+    warning: '#F59E0B',
+    error: '#DC2626',
   },
 } as const;
 
@@ -58,7 +76,10 @@ export const spacing = {
 // タイポグラフィシステム
 export const typography = {
   fontFamily: {
+    // 本文：ゴシック（可読性）
     sans: "'Noto Sans JP', 'Inter', system-ui, -apple-system, sans-serif",
+    // 見出し：明朝（信頼感・木のぬくもり）
+    serif: "'Noto Serif JP', 'Hiragino Mincho ProN', serif",
     mono: "'Fira Code', 'Courier New', monospace",
   },
   fontSize: {
@@ -77,6 +98,7 @@ export const typography = {
     light: 300,
     normal: 400,
     medium: 500,
+    semibold: 600,
     bold: 700,
   },
   letterSpacing: {
@@ -84,6 +106,7 @@ export const typography = {
     normal: '0',
     wide: '0.02em',
     wider: '0.04em',
+    widest: '0.1em',
   },
 } as const;
 
@@ -100,7 +123,6 @@ export const animation = {
     easeIn: 'cubic-bezier(0.4, 0, 1, 1)',
     easeOut: 'cubic-bezier(0, 0, 0.2, 1)',
     easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
-    bounce: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
   },
 } as const;
 
@@ -113,25 +135,26 @@ export const breakpoints = {
   '2xl': '1536px',
 } as const;
 
-// シャドウ
+// シャドウ（ナチュラルに控えめ）
 export const shadows = {
   none: 'none',
-  sm: '0 1px 3px 0 rgba(0, 0, 0, 0.05)',
-  md: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
-  lg: '0 10px 15px -3px rgba(0, 0, 0, 0.05)',
-  xl: '0 20px 25px -5px rgba(0, 0, 0, 0.08)',
-  '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.15)',
-  inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+  sm: '0 1px 3px 0 rgba(60, 50, 30, 0.06)',
+  md: '0 4px 6px -1px rgba(60, 50, 30, 0.06)',
+  lg: '0 10px 15px -3px rgba(60, 50, 30, 0.07)',
+  xl: '0 20px 25px -5px rgba(60, 50, 30, 0.08)',
+  '2xl': '0 25px 50px -12px rgba(60, 50, 30, 0.12)',
+  inner: 'inset 0 2px 4px 0 rgba(60, 50, 30, 0.06)',
 } as const;
 
-// ボーダー半径
+// ボーダー半径（柔らかめ）
 export const borderRadius = {
   none: '0',
-  sm: '0.125rem',   // 2px
+  sm: '0.25rem',    // 4px
   md: '0.375rem',   // 6px
-  lg: '0.5rem',     // 8px
+  lg: '0.5rem',     // 8px ← 標準
   xl: '0.75rem',    // 12px
   '2xl': '1rem',    // 16px
+  '3xl': '1.5rem',  // 24px ← 終活ステーション用に柔らかく
   full: '9999px',
 } as const;
 
@@ -145,4 +168,12 @@ export const zIndex = {
   modal: 50,
   popover: 60,
   tooltip: 70,
+} as const;
+
+// 4ハブ別アクセントカラー
+export const hubAccents = {
+  personal: colors.primary.DEFAULT,        // 一般 = 葉グリーン
+  shukatsu: '#F4D58D',                     // 終活 = 柔らかい黄色（花・自然）
+  business: colors.business.DEFAULT,       // 法人 = グレーブルー（フォーマル）
+  recruit: colors.secondary.DEFAULT,       // 採用 = ウッドブラウン（オフィスの木）
 } as const;

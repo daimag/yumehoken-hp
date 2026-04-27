@@ -1,49 +1,60 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Noto_Sans_JP } from "next/font/google"
+import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google"
 import "./globals.css"
-import Header from "@/components/header"
-import Footer from "@/components/footer"
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   display: "swap",
+  variable: "--font-noto-sans-jp",
+})
+
+const notoSerifJP = Noto_Serif_JP({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "swap",
+  variable: "--font-noto-serif-jp",
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://oouesetsubi.jp"),
+  metadataBase: new URL("https://www.yumehoken.jp"),
   title: {
-    default: "株式会社大上設備 | 山口県下関市の土木・管・水道施設工事",
-    template: "%s | 株式会社大上設備",
+    default: "ゆめほけん | ドリームインシュアランス株式会社（北九州市・保険代理店）",
+    template: "%s | ゆめほけん",
   },
   description:
-    "株式会社大上設備は山口県下関市を拠点に、土木工事・管工事・水道施設工事を手掛ける建設会社です。確かな技術と信頼で地域のインフラを支えます。",
+    "ドリームインシュアランス株式会社（ゆめほけん）は、北九州市小倉南区を拠点に「安心と夢をつないで笑顔をまもる」を理念とする保険代理店です。生命保険・損害保険・終活ステーション・法人向けリスクヘッジまで、一生涯のパートナーとしてサポートします。",
   keywords: [
-    "大上設備",
-    "下関",
-    "山口",
-    "土木工事",
-    "管工事",
-    "水道施設工事",
-    "建設",
-    "プランテラス",
+    "ゆめほけん",
+    "ドリームインシュアランス",
+    "北九州 保険",
+    "小倉南区 保険代理店",
+    "終活ステーション",
+    "終活 北九州",
+    "法人保険",
+    "リスクヘッジ",
+    "生命保険",
+    "損害保険",
+    "ペット保険",
+    "ISO9001",
   ],
-  authors: [{ name: "株式会社大上設備" }],
-  creator: "株式会社大上設備",
-  publisher: "株式会社大上設備",
+  authors: [{ name: "ドリームインシュアランス株式会社" }],
+  creator: "ドリームインシュアランス株式会社",
+  publisher: "ドリームインシュアランス株式会社",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   openGraph: {
-    title: "株式会社大上設備",
+    title: "ゆめほけん | ドリームインシュアランス株式会社",
     description:
-      "山口県下関市を拠点に土木・管・水道施設工事を手掛ける建設会社。",
-    siteName: "株式会社大上設備",
+      "「安心と夢をつないで笑顔をまもる」北九州・小倉南区のログハウスから、保険・終活・法人リスクヘッジを総合サポート。",
+    siteName: "ゆめほけん",
     locale: "ja_JP",
     type: "website",
+    url: "https://www.yumehoken.jp",
   },
   robots: {
     index: true,
@@ -57,11 +68,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja">
-      <body className={notoSansJP.className} suppressHydrationWarning>
-        <Header />
+    <html lang="ja" className={`${notoSansJP.variable} ${notoSerifJP.variable}`}>
+      <body className="font-sans" suppressHydrationWarning>
         <main>{children}</main>
-        <Footer />
       </body>
     </html>
   )

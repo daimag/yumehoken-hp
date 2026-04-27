@@ -1,5 +1,5 @@
-/* 株式会社大上設備 - 建設業向けコーポレートサイト
-   信頼・誠実・地域密着を体現する力強いデザイン */
+/* ゆめほけん（ドリームインシュアランス株式会社）コーポレートサイト
+   ナチュラル × 信頼 × 木のぬくもり を融合したデザイン */
 
 @tailwind base;
 @tailwind components;
@@ -7,27 +7,27 @@
 
 @layer base {
   :root {
-    /* 大上設備ブランドカラー（深い紺＋工事色アクセント） */
+    /* ゆめほけんブランドカラー（葉のグリーン + 木のブラウン） */
     --background: 0 0% 100%;
-    --foreground: 24 9% 10%;       /* 濃いチャコール #1c1917 */
+    --foreground: 0 0% 24%;          /* 濃チャコール #3D3D3D */
     --card: 0 0% 100%;
-    --card-foreground: 24 9% 10%;
+    --card-foreground: 0 0% 24%;
     --popover: 0 0% 100%;
-    --popover-foreground: 24 9% 10%;
-    --primary: 213 56% 23%;        /* 深い紺 #1a365d */
+    --popover-foreground: 0 0% 24%;
+    --primary: 75 73% 44%;           /* 葉のフレッシュグリーン #95C11F */
     --primary-foreground: 0 0% 100%;
-    --secondary: 30 25% 96%;       /* 温かいベージュ #f8f5f0 */
-    --secondary-foreground: 24 9% 10%;
-    --muted: 60 5% 96%;            /* stone-50相当 */
-    --muted-foreground: 24 6% 35%; /* stone-600相当 */
-    --accent: 38 92% 50%;          /* 工事色アンバー #f59e0b */
-    --accent-foreground: 24 9% 10%;
+    --secondary: 38 31% 95%;         /* クリームベージュ #FAF7F0 */
+    --secondary-foreground: 0 0% 24%;
+    --muted: 60 5% 96%;              /* stone-50相当 */
+    --muted-foreground: 0 0% 40%;    /* stone-600相当 */
+    --accent: 28 53% 60%;            /* キャラメル茶 #C8956B */
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --border: 24 6% 88%;           /* stone-200相当 */
+    --border: 24 6% 88%;             /* stone-200相当 */
     --input: 24 6% 88%;
-    --ring: 38 92% 50%;            /* アクセント色フォーカス */
-    --radius: 0.125rem;            /* rounded-sm を基準（角丸控えめ） */
+    --ring: 75 73% 44%;              /* 葉グリーンでフォーカス */
+    --radius: 0.5rem;                /* rounded-lg を基準（柔らかい） */
   }
 }
 
@@ -53,8 +53,9 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* 見出しは力強く */
+  /* 見出しは明朝体（Noto Serif JP）で信頼感と木のぬくもり */
   h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-noto-serif-jp), 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
     font-weight: 700;
     line-height: 1.4;
     letter-spacing: 0.01em;
@@ -64,7 +65,7 @@
     line-height: 1.85;
   }
 
-  /* リンクのフォーカス可視化 */
+  /* リンクのフォーカス可視化（葉グリーン） */
   a:focus-visible,
   button:focus-visible {
     outline: 2px solid hsl(var(--ring));
@@ -72,50 +73,58 @@
   }
 }
 
-/* ========== ユーティリティクラス（建設業向け） ========== */
+/* ========== ユーティリティクラス（ゆめほけん向け） ========== */
 
-/* セクション区切りライン（太めで力強さ） */
-.section-divider-strong {
-  @apply border-t-2 border-[#1a365d];
+/* セクション区切りライン（細めで優しく） */
+.section-divider {
+  @apply border-t border-stone-200;
 }
 
-/* アクセントライン（工事色の強調線） */
+/* アクセントライン（葉グリーンの強調線） */
 .accent-bar {
-  @apply w-16 h-1 bg-[#f59e0b];
+  @apply w-12 h-0.5 bg-[#95C11F];
 }
 
 .accent-bar-lg {
-  @apply w-24 h-1.5 bg-[#f59e0b];
+  @apply w-20 h-1 bg-[#95C11F];
 }
 
-/* 左ボーダー強調カード */
+/* 左ボーダー強調カード（葉グリーン） */
 .card-accent-left {
-  @apply bg-white border border-stone-200 border-l-4 border-l-[#f59e0b] rounded-sm;
+  @apply bg-white border border-stone-200 border-l-4 border-l-[#95C11F] rounded-lg;
 }
 
 /* セクションラベル（英字キャプション） */
 .section-label {
-  @apply text-[#92400e] text-sm font-semibold tracking-widest uppercase;
+  @apply text-[#5C7A14] text-sm font-semibold tracking-widest uppercase;
 }
 
-/* 骨太ボタン共通スタイル */
-.btn-bold {
-  @apply px-8 py-4 rounded-sm font-bold transition-colors inline-flex items-center justify-center;
+/* ボタン共通スタイル（柔らかめ） */
+.btn-base {
+  @apply px-8 py-3.5 rounded-md font-bold transition-all inline-flex items-center justify-center;
 }
 
 .btn-primary {
-  @apply btn-bold bg-[#1a365d] hover:bg-[#0f2441] text-white;
+  @apply btn-base bg-[#95C11F] hover:bg-[#7DA519] text-white shadow-sm hover:shadow-md;
 }
 
-.btn-accent {
-  @apply btn-bold bg-[#f59e0b] hover:bg-[#d97706] text-[#1c1917];
+.btn-secondary {
+  @apply btn-base bg-[#8B5A2B] hover:bg-[#6F4621] text-white;
 }
 
 .btn-outline {
-  @apply btn-bold border-2 border-[#1a365d] text-[#1a365d] hover:bg-[#1a365d] hover:text-white;
+  @apply btn-base border-2 border-[#95C11F] text-[#5C7A14] hover:bg-[#95C11F] hover:text-white;
 }
 
-/* スクロールバー（落ち着いた色） */
+.btn-business {
+  @apply btn-base bg-[#6B7B8C] hover:bg-[#56657A] text-white;
+}
+
+.btn-line {
+  @apply btn-base bg-[#06C755] hover:bg-[#05A847] text-white;
+}
+
+/* スクロールバー（ナチュラル） */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -126,12 +135,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(213 30% 50%);
-  border-radius: 0;
+  background: hsl(75 30% 60%);
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(213 56% 23%);
+  background: hsl(75 73% 44%);
 }
 
 /* テキストバランス */
@@ -161,4 +170,9 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-slide-a, .hero-slide-b, .hero-slide-c { animation: none; }
   .hero-slide-b, .hero-slide-c { opacity: 0; }
+}
+
+/* 明朝体ユーティリティ（見出しでない箇所で使う場合） */
+.font-serif-jp {
+  font-family: var(--font-noto-serif-jp), 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
 }
