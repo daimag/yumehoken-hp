@@ -18,13 +18,14 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // プロジェクト固有バリアント
-        cta: "bg-[#1a5490] hover:bg-[#15406d] text-white",
-        navy: "bg-[#0f1723] hover:bg-[#1a2836] text-white",
-        "outline-navy":
-          "border-2 border-[#0f1723] text-[#0f1723] hover:bg-[#0f1723] hover:text-white bg-transparent",
+        // ゆめほけんブランドバリアント
+        leaf: "bg-[#95C11F] hover:bg-[#7DA519] text-white shadow-sm hover:shadow-md",
+        wood: "bg-[#8B5A2B] hover:bg-[#6F4621] text-white",
+        "outline-leaf":
+          "border-2 border-[#95C11F] text-[#5C7A14] hover:bg-[#95C11F] hover:text-white bg-transparent",
         "outline-light":
-          "border-2 border-white/80 text-white hover:bg-white hover:text-[#0f1723] bg-transparent",
+          "border-2 border-white/80 text-white hover:bg-white hover:text-[#5C7A14] bg-transparent",
+        line: "bg-[#06C755] hover:bg-[#05A847] text-white",
       },
       size: {
         default: "h-10 px-4 py-2",

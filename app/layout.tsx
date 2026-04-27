@@ -2,6 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google"
 import "./globals.css"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
@@ -70,7 +72,9 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${notoSansJP.variable} ${notoSerifJP.variable}`}>
       <body className="font-sans" suppressHydrationWarning>
+        <Header />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )
