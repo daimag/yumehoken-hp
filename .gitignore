@@ -64,6 +64,9 @@ package-lock.json
 /playwright-report/
 /playwright/.cache/
 
+# PDF生成出力（scripts/generate-pdf.mjs の成果物）
+/output/
+
 # エディタ・IDE設定（個人環境依存）
 .idea/
 *.swp
