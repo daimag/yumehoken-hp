@@ -145,7 +145,7 @@ export default function Home() {
         className="relative min-h-[620px] md:min-h-[760px] flex items-center overflow-hidden bg-[#1F2A1A]"
         aria-label="ゆめほけんメインビジュアル"
       >
-        {/* 背景：4スライドが28秒周期で循環、各スライドはズームアウト効果 */}
+        {/* 背景：5スライドが35秒周期で循環、各スライドはズームアウト効果 */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="hero-slide-a absolute inset-0">
             <Image
@@ -159,7 +159,7 @@ export default function Home() {
           </div>
           <div className="hero-slide-b absolute inset-0">
             <Image
-              src="/images/hero/loghouse-interior.png"
+              src="/images/hero/family-beach.jpg"
               alt=""
               fill
               sizes="100vw"
@@ -168,7 +168,7 @@ export default function Home() {
           </div>
           <div className="hero-slide-c absolute inset-0">
             <Image
-              src="/images/hero/loghouse-illumination.png"
+              src="/images/hero/loghouse-interior.png"
               alt=""
               fill
               sizes="100vw"
@@ -176,6 +176,15 @@ export default function Home() {
             />
           </div>
           <div className="hero-slide-d absolute inset-0">
+            <Image
+              src="/images/hero/business-kitakyushu.jpg"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="hero-slide-e absolute inset-0">
             <Image
               src="/images/hero/loghouse-entrance.png"
               alt=""
